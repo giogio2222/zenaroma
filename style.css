@@ -140,20 +140,27 @@ nav .container {
 
     .nav-links {
         position: fixed;
-        top: 60px;
+        top: 0;
         left: -100%;
         width: 100%;
-        height: auto;
+        height: 100vh;
         background: white;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
         padding: 40px 0;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-        transition: 0.5s ease-in-out;
+        transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        z-index: 999;
     }
 
     .nav-links.active {
         left: 0;
+    }
+
+    .nav-links a {
+        font-size: 24px;
+        margin-bottom: 25px;
     }
 }
 
@@ -617,9 +624,15 @@ footer {
 
 /* Article Page Styles */
 .article-content {
-    max-width: 800px;
+    max-width: 850px;
     margin: 0 auto;
-    padding: 150px 20px 100px;
+    padding: 150px 25px 100px;
+}
+
+@media (max-width: 768px) {
+    .article-content {
+        padding: 100px 20px 60px;
+    }
 }
 
 .article-content h1 {
@@ -642,6 +655,16 @@ footer {
     font-size: 18px;
     margin-bottom: 25px;
     color: var(--text-dark);
+    text-align: justify;
+    hyphens: auto;
+}
+
+@media (max-width: 768px) {
+    .article-content p {
+        font-size: 17px;
+        line-height: 1.7;
+        text-align: left;
+    }
 }
 
 .breadcrumb {
@@ -700,6 +723,14 @@ blockquote {
     line-height: 1.4;
 }
 
+@media (max-width: 768px) {
+    blockquote {
+        font-size: 20px;
+        padding-left: 20px;
+        margin: 40px 0;
+    }
+}
+
 .baca-juga {
     background: #F4F6F4;
     padding: 20px 30px;
@@ -738,6 +769,15 @@ blockquote {
     box-shadow: var(--shadow-sm);
 }
 
+@media (max-width: 768px) {
+    .author-bio {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+        gap: 20px;
+    }
+}
+
 .author-bio img {
     width: 100px;
     height: 100px;
@@ -754,6 +794,18 @@ blockquote {
     gap: 15px;
     margin: 60px 0;
     flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+    .share-buttons {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .share-buttons span {
+        width: 100%;
+        margin-bottom: 10px;
+    }
 }
 
 .share-btn {
